@@ -1,0 +1,21 @@
+
+---
+
+### **docs/architecture/sequence_diagrams/prediction_flow.puml**
+```plaintext
+@startuml
+actor User
+participant "API Gateway" as APIG
+participant "MLController" as C
+participant "MLService" as S
+participant "Model" as M
+
+User -> APIG: POST /predict
+APIG -> C: Pass Request
+C -> S: Process Input
+S -> M: Run Inference
+M --> S: Prediction Results
+S --> C: Return Prediction
+C --> APIG: Response
+APIG --> User: JSON Response
+@enduml

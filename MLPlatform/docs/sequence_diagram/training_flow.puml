@@ -1,0 +1,14 @@
+@startuml
+actor Admin
+participant "Pipeline Orchestrator" as PO
+participant "Data Pipeline" as DP
+participant "ML Training Service" as MLT
+participant "Model Registry" as MR
+
+Admin -> PO: Trigger Training
+PO -> DP: Ingest and Transform Data
+DP --> MLT: Training Dataset
+MLT -> MR: Save Trained Model
+MR --> PO: Model Saved
+PO --> Admin: Training Complete
+@enduml
