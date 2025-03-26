@@ -1,0 +1,91 @@
+# Java related files
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.idea/
+*.iml
+*.ipr
+*.project
+target/
+out/
+
+# Python related files
+*.pyc
+*.pyo
+__pycache__/
+*.egg
+*.egg-info/
+.env/
+.venv/
+
+# Docker related files
+docker-compose.override.yml
+*.env
+.env.*
+
+# Kubernetes related files
+*.yaml~
+*.yml~
+.kube/
+
+# Terraform related files
+.terraform/
+*.tfstate
+*.tfstate.backup
+override.tf
+override.tf.json
+terraform.tfvars
+terraform.tfvars.json
+
+# Logs
+*.log
+logs/
+debug.log
+
+# Environment specific
+*.env
+.env.*
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE-specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build and dependency directories
+node_modules/
+dist/
+build/
+bin/
+.cache/
+
+# Test output
+*.coverage
+coverage/
+htmlcov/
+junit-report.xml
+
+# Generated files
+*.bak
+*.tmp
+*.lock
+*.swp
+
+# Miscellaneous
+*.bak
+*.tmp
+*.swp
+*.zip
+*.tar.gz
+*.tar
+
+# Don't ignore the following directories even if empty
+!.gitkeep
