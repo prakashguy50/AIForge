@@ -1,68 +1,84 @@
-# AIForge: Scalable AI & ML Platform for Model Development & Deployment
-
-AIForge is a comprehensive Machine Learning (ML) platform designed to streamline the development, deployment, and management of ML models in production. The platform integrates seamlessly with cloud environments, enables ML pipelines, and provides tools for monitoring and scaling AI-driven systems.
-
-## **Key Features**
-- End-to-end ML pipeline (data ingestion, preprocessing, model training, evaluation, and deployment).
-- RESTful APIs for serving ML models and accessing data.
-- Scalable infrastructure using Docker and Kubernetes.
-- Continuous Integration/Continuous Deployment (CI/CD) pipeline with GitHub Actions.
-- Cloud-native deployment on AWS (S3, SageMaker, EKS).
-- Logging, monitoring, and metrics collection for deployed models.
-- Support for fine-tuning and deploying Large Language Models (LLMs).
-- MLOps integration with tools like Apache Airflow and Databricks.
-
-## **Technologies Used**
-- **Backend**: Java (Spring Boot), Python (FastAPI).
-- **Machine Learning**: PyTorch, TensorFlow, Scikit-learn.
-- **Cloud**: AWS (S3, SageMaker, EKS), Docker, Kubernetes.
-- **MLOps**: Apache Airflow, MLFlow, Databricks.
-- **Database**: PostgreSQL, Apache Spark.
-- **Testing**: JUnit, Pytest.
-- **CI/CD**: GitHub Actions.
-
----
-
-## **Project Directory Structure**
-```plaintext
 AIForge-MLPlatform/
 │
-├── src/
-│   ├── backend/            # Backend APIs (Java/Kotlin)
-│   │   ├── main/
-│   │   ├── resources/
-│   │   ├── tests/
-│   │   └── Dockerfile
-│   ├── pipelines/          # ML Pipelines (Python)
-│   │   ├── data_ingestion.py
-│   │   ├── data_preprocessing.py
-│   │   ├── model_training.py
-│   │   ├── model_evaluation.py
-│   │   ├── model_deployment.py
-│   │   └── Dockerfile
-│   ├── models/             # Pre-trained Models and Fine-tuning Scripts
-│   └── integrations/       # Cloud Integrations
+├── src/                                # Source Code
+│   ├── backend/                        # Backend APIs (Java)
+│   │   ├── src/main/java/
+│   │   │   ├── com/yourcompany/mlapi/
+│   │   │   │   ├── controllers/
+│   │   │   │   │   ├── MLController.java
+│   │   │   │   ├── services/
+│   │   │   │   │   ├── ModelService.java
+│   │   │   │   ├── exceptions/
+│   │   │   │   │   ├── CustomException.java
+│   │   │   ├── application.properties
+│   │   ├── src/test/java/
+│   │   │   ├── com/yourcompany/mlapi/tests/
+│   │   │   │   ├── MLControllerTest.java
+│   │   ├── Dockerfile                   # Dockerfile for the backend
+│   │   ├── pom.xml                      # Maven dependencies
+│   │   └── README.md
+│   │
+│   ├── pipelines/                      # ML Pipelines (Python)
+│   │   ├── data_ingestion.py            # Data ingestion logic
+│   │   ├── data_preprocessing.py        # Preprocessing pipeline
+│   │   ├── model_training.py            # Model training script
+│   │   ├── model_evaluation.py          # Evaluation metrics logic
+│   │   ├── model_deployment.py          # Deployment script
+│   │   ├── Dockerfile                   # Dockerfile for ML pipelines
+│   │   ├── requirements.txt             # Python dependencies
+│   │   └── README.md
+│   │
+│   ├── models/                         # Models and Fine-tuning
+│   │   ├── pretrained_model.pt          # Example pre-trained model
+│   │   ├── fine_tune_script.py          # Script for fine-tuning LLMs
+│   │   └── README.md
+│   │
+│   └── integrations/                   # Integrations (e.g., AWS, DB)
+│       ├── s3_integration.py            # AWS S3 integration logic
+│       ├── kubernetes_deployment.yaml   # Kubernetes YAML deployment file
+│       ├── airflow_dag.py               # Apache Airflow DAG for pipelines
+│       └── README.md
 │
-├── infra/                  # Infrastructure Files
+├── infra/                              # Infrastructure Setup
 │   ├── docker/
+│   │   ├── backend.dockerfile           # Dockerfile for backend
+│   │   ├── pipeline.dockerfile          # Dockerfile for ML pipelines
+│   │   └── docker-compose.yml           # Local testing setup with Docker Compose
 │   ├── kubernetes/
-│   └── terraform/
+│   │   ├── backend-deployment.yaml      # Kubernetes backend deployment
+│   │   ├── pipeline-deployment.yaml     # Kubernetes ML pipeline deployment
+│   │   └── service.yaml                 # Kubernetes service definition
+│   ├── terraform/
+│   │   ├── main.tf                      # Terraform configuration for AWS
+│   │   ├── variables.tf                 # Terraform variables
+│   │   └── README.md
+│   └── README.md
 │
-├── docs/                   # Documentation
-│   ├── architecture.md
-│   ├── deployment.md
-│   └── api_documentation.md
+├── docs/                               # Documentation
+│   ├── architecture.md                  # System architecture details
+│   ├── deployment.md                    # Deployment steps for cloud
+│   ├── api_documentation.md             # REST API details
+│   ├── ml_pipelines.md                  # ML pipeline steps
+│   └── README.md
 │
-├── tests/                  # Test Suites
-│   ├── backend_tests/
-│   ├── pipeline_tests/
-│   └── integration_tests/
+├── tests/                              # Testing Suites
+│   ├── backend_tests/                   # Tests for backend
+│   │   ├── test_mlcontroller.py
+│   │   └── test_modelservice.py
+│   ├── pipeline_tests/                  # Tests for ML pipelines
+│   │   ├── test_data_ingestion.py
+│   │   ├── test_model_training.py
+│   │   └── test_model_evaluation.py
+│   └── integration_tests/               # End-to-end tests
+│       ├── test_api_pipeline_integration.py
+│       └── README.md
 │
-├── .github/                # GitHub Actions for CI/CD
+├── .github/                            # GitHub Actions
 │   └── workflows/
-│       └── ci-cd.yml
+│       └── ci-cd.yml                    # CI/CD pipeline
 │
-├── .gitignore
-├── README.md
-├── LICENSE
-└── requirements.txt        # Python dependencies
+├── .gitignore                          # Files to ignore in Git
+├── README.md                           # Main project documentation
+├── LICENSE                             # License file
+├── requirements.txt                    # Python project dependencies
+└── CONTRIBUTING.md                     # Contribution guidelines
